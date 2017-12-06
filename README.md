@@ -1,2 +1,1 @@
-# CSRF_SAFE
-CSRF SAFE
+# CSRF_unsafe
