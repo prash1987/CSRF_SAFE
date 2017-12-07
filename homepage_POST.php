@@ -51,7 +51,7 @@
 		<h4><label>Transfer Money</label></h4>
 		<input class="form-control" type="text" name = "account_num" placeholder="Account Number" required><br>
 		<input class="form-control" type="text" name = "amount" placeholder="Amount" required><br>
-
+        <input type="hidden" name="csrf" value="<?php echo $_SESSION["token"]; ?>">
         <div class="action">
             <input type = "submit" class="btn btn-primary btn-block signup"  value = "Transfer"/>
         </div>

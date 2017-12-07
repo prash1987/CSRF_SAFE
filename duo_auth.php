@@ -25,7 +25,7 @@
         $_SESSION['login_user'] = $email_id;
         $_SESSION['loggedin'] = true;
 		//md5(uniqid(mt_rand(), true));
-		$_SESSION['token'] = "test";
+		$_SESSION["token"] = md5(uniqid(mt_rand(), true));
         header('Location: homepage_GET.php?&csrf='. $_SESSION['token']);   
       }else {
 		  echo "<script type='text/javascript'> alert(1) </script>";

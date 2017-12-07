@@ -4,7 +4,9 @@
     include("header.php");    
     
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && isset($_SESSION['login_user']) && (isset($_GET["csrf"]) && $_GET["csrf"] == $_SESSION["token"])){
-		echo "<script type='text/javascript'> alert(1) </script>";
+		 $myvar = $_SESSION["token"];
+		 
+		//echo "<script type='text/javascript'> alert('$_SESSION["token"]') </script>";
 		$userLoggedIn = $_SESSION['login_user'];
 		
 		$conn = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
@@ -35,6 +37,7 @@
 	}
 	}
 	else{
+		echo "Token mismatch. Logging you out";
 		session_unset();
         session_destroy();
 		header("Location: login.php");
@@ -54,7 +57,7 @@
 		<h4><label>Transfer Money</label></h4>
 		<input class="form-control" type="text" name = "account_num" placeholder="Account Number" required><br>
 		<input class="form-control" type="text" name = "amount" placeholder="Amount" required><br>
-
+        <input type="hidden" name="csrf" value="<?php echo $_SESSION["token"]; ?>">
         <div class="action">
             <input type = "submit" class="btn btn-primary btn-block signup"  value = "Transfer"/>
         </div>
