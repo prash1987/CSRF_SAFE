@@ -3,15 +3,9 @@
     include("config.php");
     include("header.php");    
     
-    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && isset($_SESSION['login_user']) && && (isset($_POST["csrf"]) && $_POST["csrf"] == $_SESSION["token"])){
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true && isset($_SESSION['login_user']) && (isset($_POST["csrf"]) && $_POST["csrf"] == $_SESSION["token"])){
 		$userLoggedIn = $_SESSION['login_user'];
-	}
-	else{
-		session_unset();
-        session_destroy();
-		header("Location: login.php");
-	}
-	$conn = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
+		$conn = mysqli_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD,DB_DATABASE);
 
 	if($_SERVER["REQUEST_METHOD"] == "POST") {
 		if (isset($_POST['account_num']) && isset($_POST['amount'])) {
@@ -37,6 +31,13 @@
 			}
 		}
 	}
+	}
+	else{
+		session_unset();
+        session_destroy();
+		header("Location: login.php");
+	}
+	
 ?>
 	<head>
 	<title>Unsafe Bank</title>    
