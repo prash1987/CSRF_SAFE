@@ -3,6 +3,10 @@
    include("config.php");
 
    $error = ".";
+   
+  if (isset($_GET['error'])) {
+  	echo "CSRF attack detected. Terminating your session";
+  }
 
    if($_SERVER["REQUEST_METHOD"] == "POST") {
       // username and password sent from form 
@@ -58,7 +62,7 @@
 
 <html>
   <head>
-    <title>Unsafe Bank</title>
+    <title>Safe Bank</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
     <link href="bootstrap.min.css" rel="stylesheet">

@@ -35,12 +35,12 @@
 	else{
 		session_unset();
         session_destroy();
-		header("Location: login.php");
+		header("Location: login.php?error=true");
 	}
 	
 ?>
 	<head>
-	<title>Unsafe Bank</title>    
+	<title>Safe Bank</title>    
     <link href="bootstrap.min.css" rel="stylesheet">
     <link href="styles.css" rel="stylesheet">
     <link href="sn_styles.css" rel="stylesheet" type="text/css">

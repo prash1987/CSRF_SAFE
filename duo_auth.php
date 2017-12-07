@@ -51,7 +51,7 @@
 	           <div class="col-md-12">
 	              <!-- Logo -->
 	              <div class="logo">
-	                 <h1><a href="index.php">Unsafe Bank</a></h1>
+	                 <h1><a href="index.php">Safe Bank</a></h1>
 	              </div>
 	           </div>
 	        </div>
